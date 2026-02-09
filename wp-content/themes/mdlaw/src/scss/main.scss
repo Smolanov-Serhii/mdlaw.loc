@@ -3,7 +3,7 @@
 @import "mixins";
 @import "grid";
 @import "normalize";
-//@import "fonts";
+@import "fonts";
 //@import "swiper-bundle";
 @import "aos";
 $transition: 0.2s;
@@ -36,19 +36,6 @@ body{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-top: 142px;
-  @media all and (max-width: 1260px){
-    padding-top: 106px;
-  }
-  @media all and (max-width: 990px){
-    padding-top: 124px;
-  }
-  @media all and (max-width: 768px){
-    padding-top: 112px;
-  }
-  @media all and (max-width: 500px){
-    padding-top: 90px;
-  }
   &.locked{
     overflow: hidden;
     header{
@@ -138,32 +125,43 @@ img{
   @extend .padding-right;
 }
 .section-title{
-  font-family: "Alice", serif;
+  font-size: 52px;
+  color: #FFF;
+  font-weight: 300;
+  margin-bottom: 24px;
+  line-height: normal;
+  font-family: "Namu", "Open Sans";
   text-transform: uppercase;
-  font-size: 64px;
-  color: #537467;
-  font-weight: 400;
-  margin-bottom: 35px;
-  line-height: 100%;
+  padding-top: 32px;
+  position: relative;
   @media all and (max-width: 1440px){
-    font-size: 58px;
+    font-size: 48px;
   }
   @media all and (max-width: 1024px){
-    font-size: 52px;
+    font-size: 42px;
   }
   @media all and (max-width: 768px){
-    font-size: 46px;
+    font-size: 38px;
   }
   @media all and (max-width: 500px){
-    font-size: 40px;
+    font-size: 32px;
+  }
+  &:before{
+    display: inline-block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 106px;
+    height: 1px;
+    background-color: #FFF;
   }
 }
 .section-subtitle{
-  font-size: 20px;
-  color: #A4987D;
-  margin-bottom: 50px;
-  line-height: 100%;
-  text-transform: uppercase;
+  font-size: 18px;
+  color: #FFF;
+  margin-bottom: 2.5em;
+  line-height: 1.55;
   @media all and (max-width: 1440px){
     font-size: 18px;
   }
@@ -182,8 +180,7 @@ img{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 25px 45px;
-  border: 1px solid #E8AE44;
+  padding: 20px 32px;
   text-decoration: none;
   transition: 0.3s ease-in-out;
   cursor: pointer;
@@ -192,44 +189,28 @@ img{
     height: auto;
   }
   span{
-    font-size: 16px;
+    font-size: 18px;
     transition: 0.3s ease-in-out;
+    font-weight: 500;
     @media all and (max-width: 768px){
       font-size: 14px;
     }
   }
-  &-stroke{
-    border: 1px solid #E8AE44;
-    background-color: transparent;
-    span{
-      color: #FFF3D6;
-    }
-    &:hover{
-      background-color: #E8AE44;
-      span{
-        color: #000;
-      }
-    }
-  }
-  &-brown{
-    border: 1px solid #E8AE44;
-    background-color: #E8AE44;
+  &-white{
+    background-color: #FFF;
     span{
       color: #000;
     }
-    &:hover{
-      background-color: transparent;
-      span{
-        color: #FFF3D6;
-      }
+  }
+  &-black{
+    background-color: #000;
+    span{
+      color: #FFF;
     }
   }
 }
 a{
   color: #00555C;
-}
-.button{
-
 }
 .wpcf7-form{
   input:focus {
@@ -334,23 +315,10 @@ a{
 
 @import "templates/header";
 @import "templates/banner";
+@import "templates/digits";
 @import "templates/about";
-@import "templates/balance";
-@import "templates/what";
-@import "templates/list";
-@import "templates/grid";
-@import "templates/text";
-@import "templates/sut";
-@import "templates/mirror";
-@import "templates/mirrort";
-@import "templates/popup";
-@import "templates/contacts";
-@import "templates/hotels";
-@import "templates/hotelsfo";
-@import "templates/location";
-@import "templates/success-send";
-@import "templates/prefooter";
-@import "templates/calendar";
+@import "templates/services";
+@import "templates/image";
 @import "templates/404";
 @import "templates/footer";
 

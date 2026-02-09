@@ -45,17 +45,6 @@ jQuery(function ($) {
         unlockBodyIfNothingOpen();
     }
 
-    function openPopup() {
-        lockBody();
-        $(".popup-zapis").fadeIn(300);
-    }
-
-    function closePopup() {
-        $(".popup-zapis").fadeOut(300, function () {
-            unlockBodyIfNothingOpen();
-        });
-    }
-
     // ===== Burger controls =====
     $(".header__burger").on("click", function (e) {
         e.preventDefault();
@@ -75,23 +64,6 @@ jQuery(function ($) {
         closeBurger();
     });
 
-    // ===== Popup controls =====
-    $(".js-form").on("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        openPopup();
-    });
-
-    $(".popup-zapis__close").on("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        closePopup();
-    });
-
-    // Чтобы клик внутри попапа не считался "клик вне"
-    $(".popup-zapis").on("click", function (e) {
-        e.stopPropagation();
-    });
 
     // ===== Contact Form 7 success =====
     document.addEventListener("wpcf7mailsent", function () {
@@ -126,4 +98,62 @@ jQuery(function ($) {
         }
     });
 
+    const items = document.querySelectorAll('.services__item');
+
+    items.forEach(item => {
+        const header = item.querySelector('.services__item-header');
+        const content = item.querySelector('.services__item-content');
+
+        // гарантируем закрытое состояние
+        content.style.maxHeight = '0px';
+
+        header.addEventListener('click', () => {
+            const isOpen = item.classList.contains('is-open');
+
+            if (isOpen) {
+                // закрываем
+                item.classList.remove('is-open');
+                content.style.maxHeight = '0px';
+            } else {
+                // открываем
+                item.classList.add('is-open');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        });
+    });
+    const menuLinks = document.querySelectorAll('#primary-menu a');
+    const menuItems = Array.from(menuLinks).map(link => ({
+        link,
+        li: link.closest('li'),
+        target: document.querySelector(link.getAttribute('href'))
+    })).filter(item => item.target);
+
+    function onScroll() {
+        const viewportCenter = window.innerHeight / 2;
+
+        let activeFound = false;
+
+        menuItems.forEach(item => {
+            const rect = item.target.getBoundingClientRect();
+
+            const isInCenter =
+                rect.top <= viewportCenter + 100 &&
+                rect.bottom >= viewportCenter - 100;
+
+            if (isInCenter && !activeFound) {
+                item.li.classList.add('is-active');
+                activeFound = true;
+            } else {
+                item.li.classList.remove('is-active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('resize', onScroll);
+
+    // начальная инициализация
+    onScroll();
+
 });
+

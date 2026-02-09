@@ -41,17 +41,6 @@ $post_id = get_the_ID();
         <?php echo do_shortcode( '[contact-form-7 id="e65f92f" title="Contact page form"]' );?>
     </div>
 </div>
-<div class="video-modal" style="display: none;">
-    <div class="video-modal__container">
-        <div class="video-modal__close">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <rect x="4.57538" y="3" width="24" height="3" rx="1.5" transform="rotate(45 4.57538 3)" fill="#B0C1ED"></rect> <rect x="2.4541" y="19.9705" width="24" height="3" rx="1.5" transform="rotate(-45 2.4541 19.9705)" fill="#B0C1ED"></rect> </svg>
-        </div>
-        <video preload="true" autoplay loop height="auto" width="100%">
-            <source src="" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-</div>
 <header class="header">
     <div class="header__container main-container">
         <div class="header__logo">
