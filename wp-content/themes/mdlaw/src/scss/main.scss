@@ -1,0 +1,356 @@
+@import "default";
+@import "variables";
+@import "mixins";
+@import "grid";
+@import "normalize";
+//@import "fonts";
+//@import "swiper-bundle";
+@import "aos";
+$transition: 0.2s;
+:root{
+  scroll-behavior: smooth;
+}
+// GENERAL DOCUMENT STYLES
+* {
+  box-sizing: border-box;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  //-webkit-user-select: none;
+  /* user-select -- это нестандартное свойство */
+
+  //-moz-user-select: none;
+  /* поэтому нужны префиксы */
+
+  //-ms-user-select: none;
+}
+html{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+  font-size: 10px;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 142px;
+  @media all and (max-width: 1260px){
+    padding-top: 106px;
+  }
+  @media all and (max-width: 990px){
+    padding-top: 124px;
+  }
+  @media all and (max-width: 768px){
+    padding-top: 112px;
+  }
+  @media all and (max-width: 500px){
+    padding-top: 90px;
+  }
+  &.locked{
+    overflow: hidden;
+    header{
+      &:before{
+        pointer-events: all;
+        opacity: 1;
+      }
+    }
+
+  }
+  header{
+    &:before{
+      content: "";
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.88);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 50;
+      transition: 0.3s ease-in-out;
+    }
+  }
+  main{
+    overflow: hidden;
+    &.margin-top{
+      padding-top: 80px;
+      @media all and (max-width: 768px){
+        padding-top: 50px;
+      }
+    }
+  }
+}
+img{
+  max-width: 100%;
+}
+.padding-right{
+  padding-right: 82px;
+  @media all and (max-width: 1680px){
+    padding-right: 72px;
+  }
+  @media all and (max-width: 1440px){
+    padding-right: 62px;
+  }
+  @media all and (max-width: 1280px){
+    padding-right: 52px;
+  }
+  @media all and (max-width: 1024px){
+    padding-right: 42px;
+  }
+  @media all and (max-width: 768px){
+    padding-right: 32px;
+  }
+  @media all and (max-width: 500px){
+    padding-right: 20px;
+  }
+}
+.padding-left{
+  padding-left: 82px;
+  @media all and (max-width: 1680px){
+    padding-left: 72px;
+  }
+  @media all and (max-width: 1440px){
+    padding-left: 62px;
+  }
+  @media all and (max-width: 1280px){
+    padding-left: 52px;
+  }
+  @media all and (max-width: 1024px){
+    padding-left: 42px;
+  }
+  @media all and (max-width: 768px){
+    padding-left: 32px;
+  }
+  @media all and (max-width: 500px){
+    padding-left: 20px;
+  }
+}
+.main-container{
+  max-width: 1440px;
+  margin: auto;
+  width: 100%;
+  @extend .padding-left;
+  @extend .padding-right;
+}
+.section-title{
+  font-family: "Alice", serif;
+  text-transform: uppercase;
+  font-size: 64px;
+  color: #537467;
+  font-weight: 400;
+  margin-bottom: 35px;
+  line-height: 100%;
+  @media all and (max-width: 1440px){
+    font-size: 58px;
+  }
+  @media all and (max-width: 1024px){
+    font-size: 52px;
+  }
+  @media all and (max-width: 768px){
+    font-size: 46px;
+  }
+  @media all and (max-width: 500px){
+    font-size: 40px;
+  }
+}
+.section-subtitle{
+  font-size: 20px;
+  color: #A4987D;
+  margin-bottom: 50px;
+  line-height: 100%;
+  text-transform: uppercase;
+  @media all and (max-width: 1440px){
+    font-size: 18px;
+  }
+  @media all and (max-width: 1024px){
+    font-size: 16px;
+  }
+  @media all and (max-width: 768px){
+    font-size: 15px;
+  }
+  @media all and (max-width: 500px){
+    font-size: 14px;
+  }
+}
+.button, .wpcf7-submit{
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 45px;
+  border: 1px solid #E8AE44;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  @media all and (max-width: 768px){
+    padding: 16px 24px;
+    height: auto;
+  }
+  span{
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+    @media all and (max-width: 768px){
+      font-size: 14px;
+    }
+  }
+  &-stroke{
+    border: 1px solid #E8AE44;
+    background-color: transparent;
+    span{
+      color: #FFF3D6;
+    }
+    &:hover{
+      background-color: #E8AE44;
+      span{
+        color: #000;
+      }
+    }
+  }
+  &-brown{
+    border: 1px solid #E8AE44;
+    background-color: #E8AE44;
+    span{
+      color: #000;
+    }
+    &:hover{
+      background-color: transparent;
+      span{
+        color: #FFF3D6;
+      }
+    }
+  }
+}
+a{
+  color: #00555C;
+}
+.button{
+
+}
+.wpcf7-form{
+  input:focus {
+    background-color: lightblue;
+  }
+  label{
+    position: relative;
+  }
+  .wpcf7-not-valid{
+    border: 1px solid #E20000;
+  }
+  .wpcf7-not-valid-tip{
+    position: absolute;
+    background-color: #E20000;
+    color: white;
+    border-radius: 20px;
+    bottom: -8px;
+    top: auto!important;
+    left: 48px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 20px;
+    font-size: 14px;
+    @media all and (max-width: 500px){
+      font-size: 10px;
+      height: 14px;
+      left: 10px;
+    }
+  }
+}
+
+.wpcf7-response-output, .wpcf7-spinner{
+  display: none!important;
+}
+.text-block{
+  ul{
+    padding-left: 24px;
+    margin-top: 10px;
+    margin-bottom: 1em;
+    li{
+      list-style: disc;
+      font-size: 16px;
+      margin-bottom: 0;
+      line-height: 150%;
+      @media all and (max-width: 768px){
+        font-size: 15px;
+      }
+      @media all and (max-width: 500px){
+        font-size: 14px;
+      }
+      strong{
+        font-weight: 600;
+        font-size: 20px;
+        @media all and (max-width: 1440px){
+          font-size: 18px;
+        }
+        @media all and (max-width: 1024px){
+          font-size: 16px;
+        }
+        @media all and (max-width: 768px){
+          font-size: 15px;
+        }
+        @media all and (max-width: 500px){
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  p{
+    font-size: 16px;
+    margin-bottom: 1em;
+    line-height: 150%;
+    @media all and (max-width: 768px){
+      font-size: 15px;
+    }
+    @media all and (max-width: 500px){
+      font-size: 14px;
+    }
+    strong{
+      font-weight: 600;
+      font-size: 20px;
+      @media all and (max-width: 1440px){
+        font-size: 18px;
+      }
+      @media all and (max-width: 1024px){
+        font-size: 16px;
+      }
+      @media all and (max-width: 768px){
+        font-size: 15px;
+      }
+      @media all and (max-width: 500px){
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+
+
+
+@import "templates/header";
+@import "templates/banner";
+@import "templates/about";
+@import "templates/balance";
+@import "templates/what";
+@import "templates/list";
+@import "templates/grid";
+@import "templates/text";
+@import "templates/sut";
+@import "templates/mirror";
+@import "templates/mirrort";
+@import "templates/popup";
+@import "templates/contacts";
+@import "templates/hotels";
+@import "templates/hotelsfo";
+@import "templates/location";
+@import "templates/success-send";
+@import "templates/prefooter";
+@import "templates/calendar";
+@import "templates/404";
+@import "templates/footer";
+
