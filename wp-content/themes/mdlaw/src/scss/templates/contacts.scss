@@ -1,0 +1,100 @@
+.contacts{
+  padding: 84px 0;
+  background-color: #FFF;
+  @media all and (max-width: 1440px) {
+    padding: 74px 0;
+  }
+  @media all and (max-width: 1024px) {
+    padding: 64px 0;
+  }
+  @media all and (max-width: 768px) {
+    padding: 54px 0;
+  }
+  @media all and (max-width: 500px) {
+    padding: 40px 0;
+  }
+  &__container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__text{
+    width: 40%;
+    @media all and (max-width: 1024px) {
+      width: 100%;
+    }
+  }
+  &__form{
+   width: 40%;
+    @media all and (max-width: 1024px) {
+      width: 100%;
+    }
+    .wpcf7-submit{
+      @media all and (max-width: 500px) {
+        width: 100%;
+      }
+    }
+    input:not([type="submit"], [type="checkbox"]), textarea{
+      font-family: "Montserrat", sans-serif;
+      &::placeholder{
+        font-size: 16px;
+        color: #000;
+        @media all and (max-width: 768px) {
+          font-size: 14px;
+        }
+      }
+      border: none;
+      width: 100%;
+      font-size: 16px;
+      color: #000;
+      padding: 12px 0;
+      border-bottom: 1px solid #000;
+      margin-bottom: 10px;
+      @media all and (max-width: 768px) {
+        font-size: 14px;
+      }
+    }
+    textarea{
+      max-height: 100px;
+      resize: none;
+    }
+    .wpcf7-not-valid-tip{
+      font-size: 14px;
+      @media all and (max-width: 768px) {
+        font-size: 12px;
+      }
+    }
+    form{
+      > p{
+
+      }
+    }
+    .wpcf7-list-item{
+      margin-left: 0;
+      label{
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+        margin-top: 24px;
+        .wpcf7-list-item-label{
+          font-size: 14px;
+          color: #818181;
+          margin-left: 20px;
+          @media all and (max-width: 768px) {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+  &__title{
+    color: #000;
+    &:before{
+      background-color: #000;
+    }
+  }
+  &__subtitle{
+    color: #000;
+  }
+}

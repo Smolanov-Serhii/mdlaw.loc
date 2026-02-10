@@ -9,7 +9,7 @@ $post_id = get_the_ID();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/dist/custom-fav.png" type="image/png">
+<!--    <link rel="icon" href="--><?php //echo get_template_directory_uri(); ?><!--/dist/custom-fav.png" type="image/png">-->
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -20,28 +20,7 @@ $post_id = get_the_ID();
         <div class="preloader__item"></div>
     </div>
 </div>
-<div class="header__popup" style="display: none;">
-    <div class="header__popup-container">
-        <p>SUCCESS</p>
-        <div class="header__popup-close">
-            <div class="button button-black">
-                <span>Message has been sanded</span>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="contact-form popup-zapis" style="display: none">
-    <div class="contact-form__form popup-zapis__container">
-        <div class="popup-zapis__close">
-            <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="0.5" y="0.5" width="44" height="44" fill="#FDFDFD" stroke="#EFEFEF"/>
-                <path d="M13 32L22.5 22.5M32 13L22.5 22.5M22.5 22.5L32 32L13 13" stroke="#A6A6A6" stroke-linecap="round"/>
-            </svg>
-        </div>
-        <?php echo do_shortcode( '[contact-form-7 id="e65f92f" title="Contact page form"]' );?>
-    </div>
-</div>
-<header class="header">
+<header class="header" data-aos="fade-down" data-aos-delay="100">
     <div class="header__container main-container">
         <div class="header__logo">
             <?php

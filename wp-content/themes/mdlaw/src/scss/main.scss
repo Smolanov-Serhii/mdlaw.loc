@@ -4,7 +4,7 @@
 @import "grid";
 @import "normalize";
 @import "fonts";
-//@import "swiper-bundle";
+@import "swiper-bundle";
 @import "aos";
 $transition: 0.2s;
 :root{
@@ -63,12 +63,16 @@ body{
     }
   }
   main{
-    overflow: hidden;
+    //overflow: hidden;
     &.margin-top{
       padding-top: 80px;
       @media all and (max-width: 768px){
         padding-top: 50px;
       }
+    }
+    > section, > div{
+      width: 100%;
+      overflow: hidden;
     }
   }
 }
@@ -182,8 +186,9 @@ img{
   justify-content: center;
   padding: 20px 32px;
   text-decoration: none;
-  transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out!important;
   cursor: pointer;
+  border: none;
   @media all and (max-width: 768px){
     padding: 16px 24px;
     height: auto;
@@ -198,12 +203,27 @@ img{
   }
   &-white{
     background-color: #FFF;
+    &:hover{
+      background-color: #000;
+      span{
+        color: #FFF;
+      }
+    }
     span{
       color: #000;
     }
   }
   &-black{
     background-color: #000;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 500;
+    @media all and (max-width: 768px){
+      font-size: 14px;
+    }
+    &:hover{
+      background-color: #28384E;
+    }
     span{
       color: #FFF;
     }
@@ -212,103 +232,12 @@ img{
 a{
   color: #00555C;
 }
-.wpcf7-form{
-  input:focus {
-    background-color: lightblue;
-  }
-  label{
-    position: relative;
-  }
-  .wpcf7-not-valid{
-    border: 1px solid #E20000;
-  }
-  .wpcf7-not-valid-tip{
-    position: absolute;
-    background-color: #E20000;
-    color: white;
-    border-radius: 20px;
-    bottom: -8px;
-    top: auto!important;
-    left: 48px;
-    height: 22px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0 20px;
-    font-size: 14px;
-    @media all and (max-width: 500px){
-      font-size: 10px;
-      height: 14px;
-      left: 10px;
-    }
-  }
-}
+
 
 .wpcf7-response-output, .wpcf7-spinner{
   display: none!important;
 }
-.text-block{
-  ul{
-    padding-left: 24px;
-    margin-top: 10px;
-    margin-bottom: 1em;
-    li{
-      list-style: disc;
-      font-size: 16px;
-      margin-bottom: 0;
-      line-height: 150%;
-      @media all and (max-width: 768px){
-        font-size: 15px;
-      }
-      @media all and (max-width: 500px){
-        font-size: 14px;
-      }
-      strong{
-        font-weight: 600;
-        font-size: 20px;
-        @media all and (max-width: 1440px){
-          font-size: 18px;
-        }
-        @media all and (max-width: 1024px){
-          font-size: 16px;
-        }
-        @media all and (max-width: 768px){
-          font-size: 15px;
-        }
-        @media all and (max-width: 500px){
-          font-size: 14px;
-        }
-      }
-    }
-  }
-  p{
-    font-size: 16px;
-    margin-bottom: 1em;
-    line-height: 150%;
-    @media all and (max-width: 768px){
-      font-size: 15px;
-    }
-    @media all and (max-width: 500px){
-      font-size: 14px;
-    }
-    strong{
-      font-weight: 600;
-      font-size: 20px;
-      @media all and (max-width: 1440px){
-        font-size: 18px;
-      }
-      @media all and (max-width: 1024px){
-        font-size: 16px;
-      }
-      @media all and (max-width: 768px){
-        font-size: 15px;
-      }
-      @media all and (max-width: 500px){
-        font-size: 14px;
-      }
-    }
-  }
-}
+
 
 
 
@@ -319,6 +248,10 @@ a{
 @import "templates/about";
 @import "templates/services";
 @import "templates/image";
+@import "templates/team";
+@import "templates/clients";
+@import "templates/contacts";
+@import "templates/success-send";
 @import "templates/404";
 @import "templates/footer";
 
